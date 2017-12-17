@@ -1,0 +1,53 @@
+.PersonalData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.PersonalData-Profile {
+  width: 100%;
+  height: 100%;
+  max-width: 180px;
+  max-height: 180px;
+  border-radius: 140px;
+  overflow: hidden;
+  margin-bottom: 30px
+}
+
+.PersonalData-Profile > img {
+  width: inherit;
+}
+
+.PersonalData-Row {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0px 20px 15px;
+}
+
+.PersonalData-Title {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 480px) {
+  .PersonalData-Profile {
+    max-width: 240px;
+    max-height: 240px;
+  }
+
+  .PersonalData-Row {
+    flex-direction: row;
+  }
+
+  .PersonalData-Title {
+    font-size: 1rem;
+  }
+
+  .PersonalData-Row > *:nth-child(1) {
+    flex-basis: 170px;
+    flex-shrink: 0;
+  }
+}

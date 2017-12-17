@@ -1,0 +1,66 @@
+.ProjectHeader-IconLink {
+  opacity: 0.5;
+  padding: 8px;
+  display: flex;
+  margin-bottom: -8px;
+}
+
+.ProjectHeader-CompanyTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  border-top: dotted 1px hsla(189, 100%, 42%, 0.4);
+  border-bottom: dotted 1px hsla(189, 100%, 42%, 0.4);
+  margin-bottom: 15px;
+  padding: 15px 20px 15px;
+  background-color:  hsla(188, 100%, 42%, 0.1);
+}
+
+.ProjectHeader-CompanyName {
+  margin-bottom: 3px;
+  font-size: 1.3rem;
+  color: #444;
+  flex-basis: calc(100% - 40px);
+}
+
+.ProjectHeader-CompanyLink {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  margin-left: 5px;
+  height: 16px;
+}
+
+.ProjectHeader-CompanyTag {
+  font-size: 0.9rem;
+  color: #888;
+  margin-right: 5px;
+}
+
+.ProjectHeader-IconUp {
+  padding: 4px;
+  display: flex;
+  background-color: hsla(189, 100%, 42%, 0.5);
+}
+
+.ProjectHeader-IconUp > .Ico {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 480px) {
+  .ProjectHeader-CompanyTitle {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .ProjectHeader-CompanyName {
+    flex-basis: auto;
+  }
+}
+
+@media print {
+  .ProjectHeader-IconUp, .ProjectHeader-IconLink {
+    display: none;
+  }
+}

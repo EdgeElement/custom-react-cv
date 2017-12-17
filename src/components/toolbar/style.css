@@ -1,0 +1,90 @@
+.Toolbar {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 1;
+}
+
+.Toolbar-Bar {
+  height: 40px;
+  background-color: hsl(189, 100%, 35%);
+  border-bottom: hsl(189, 100%, 40%) solid 1px;
+  display: flex;
+  align-items: center;
+}
+
+.Toolbar-Icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.Toolbar-Icon .Ico {
+  width: inherit;
+  height: inherit;
+}
+
+.Toolbar-Menu {
+  position: relative;
+  width: 100%;
+}
+
+.Toolbar-Menu-Container {
+  position: absolute;
+  width: 100%;
+  box-shadow: 0px 4px 8px hsla(189, 100%, 35%, 0.3);
+}
+
+.Toolbar-Menu-Container > ul {
+  position: relative;
+  display: block;
+}
+
+.Toolbar-MenuEntry {
+  padding: 5px 7px;
+  background-color: hsl(189, 100%, 95%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Toolbar-Checkbox {
+  width: 15px;
+  height: 15px;
+  margin: 3px 5px 3px 3px;
+  background-color: red;
+}
+
+.Toolbar-MenuEntryHash {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Toolbar-MenuEntry .Ico {
+  margin-right: 5px;
+  margin-left: 3px;
+}
+
+.Toolbar-Hash {
+  margin-top: 5px;
+  margin-left: 22px;
+  margin-bottom: 3px;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.Toolbar-MenuEntryHash textarea {
+  margin-left: 22px;
+  width: calc(100% - 30px);
+  border: solid 1px hsl(189, 100%, 35%);
+  padding: 4px 5px;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+@media print {
+  .Toolbar {
+    display: none;
+  }
+}

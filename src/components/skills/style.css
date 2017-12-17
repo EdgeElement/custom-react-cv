@@ -1,0 +1,34 @@
+.Skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.Skills-Row {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0px 20px 15px;
+}
+
+.Skills-Type {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+  color: #888;
+}
+
+@media screen and (min-width: 480px) {
+  .Skills-Row {
+    flex-direction: row;
+  }
+
+  .Skills-Type {
+    font-size: 1rem;
+  }
+
+  .Skills-Row > *:nth-child(1) {
+    flex-basis: 170px;
+    flex-shrink: 0;
+  }
+}
