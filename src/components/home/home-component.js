@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import './style.css';
+import React, { Component } from 'react'
+import './style.css'
+
+import Ico from '../ico'
 // import f from 'lodash/fp';
 
 export default class Home extends Component {
@@ -11,19 +13,20 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div className="Home">
-				<h1>Custom Lebenslauf Engine</h1>
-        <p>von</p>
+				<h1>Custom CV Engine</h1>
+        <p>by</p>
 				<h3>Markus Glatz</h3>
         <br/>
         <br/>
         <p className="Home-Note">Sollten Sie diese Seite sehen haben Sie keinen angepassten Link (<b>/custom/...</b>) erhalten.</p>
-        <p className="Home-Note">Kontaktieren Sie mich Bitte um weitere Informationen zu erhalten</p>
-        <p>{ this.state.email }</p>
+        {/* <p>Erstellen sie ihren individuellen CV unter <Link to='/config'>/config</Link></p> */}
         <br/>
         <br/>
         <p className="Home-Source">
           <span>
-            Der hierfür entwickelte Projektcode zur Darstellung eines individuell anpassbaren CVs, wird in kürze auf Github verfügbar sein.
+            Den Source Code finden sie auf <a href="https://github.com/4Pixel" target="_blank" rel="noopener noreferrer">github.com/4Pixel.<br/>
+            <Ico icon="github"/>
+            </a>
           </span>
         </p>
 			</div>
