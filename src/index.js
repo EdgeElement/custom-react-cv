@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
-import ConfigCV from './components/config-cv';
-import CustomCV from './components/custom-cv';
-import Home from './components/home';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ReactGA from 'react-ga';
-ReactGA.initialize( 'UA-00000000-0' );
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import registerServiceWorker from './registerServiceWorker'
+import './index.css'
+import ConfigCV from './components/config-cv/config-cv-component'
+import CustomCV from './components/custom-cv/custom-cv-component'
+import Home from './components/home/home-component'
+
+import ReactGA from 'react-ga'
+ReactGA.initialize( 'UA-00000000-0' )
 ReactGA.pageview( window.location.pathname + window.location.search );
 
 ReactDOM.render( <Router>

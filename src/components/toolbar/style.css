@@ -55,7 +55,12 @@
   background-color: red;
 }
 
-.Toolbar-MenuEntryHash {
+.Toolbar-DataLink {
+  margin-left: 22px;
+}
+
+.Toolbar-MenuEntryHash,
+.Toolbar-MenuEntryDataLink {
   flex-direction: column;
   align-items: flex-start;
 }
@@ -74,7 +79,8 @@
   align-items: center;
 }
 
-.Toolbar-MenuEntryHash textarea {
+.Toolbar-MenuEntryHash textarea,
+.Toolbar-MenuEntryDataLink textarea {
   margin-left: 22px;
   width: calc(100% - 30px);
   border: solid 1px hsl(189, 100%, 35%);

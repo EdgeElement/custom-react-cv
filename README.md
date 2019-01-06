@@ -10,12 +10,12 @@ The Custom React CV is React Based Progressive WebApp Project. You can costumize
 
 ## Screenshots
 ### Mobile:
-![](sample/screenshot-cv-home-mobil.jpg "Home")
-![](sample/screenshot-cv-education-mobil.jpg "Education")
-![](sample/screenshot-cv-gallery-mobil.jpg "Gallery")
-![](sample/screenshot-cv-lightbox-mobil.jpg "Lightbox")
+![](screenshots/screenshot-cv-home-mobil.jpg "Home")
+![](screenshots/screenshot-cv-education-mobil.jpg "Education")
+![](screenshots/screenshot-cv-gallery-mobil.jpg "Gallery")
+![](screenshots/screenshot-cv-lightbox-mobil.jpg "Lightbox")
 
 ### Desktop:
-![](sample/screenshot-cv-home.jpg "Home")
+![](screenshots/screenshot-cv-home.jpg "Home")
 ---
-![](sample/screenshot-customize.jpg "Customize")
+![](screenshots/screenshot-customize.jpg "Customize")

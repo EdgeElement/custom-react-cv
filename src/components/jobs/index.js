@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import './style.css';
-import data from '../../data.js';
-import f from 'lodash/fp';
-import { format } from 'date-fns';
+import React, { Component } from 'react'
+import './style.css'
+import f from 'lodash/fp'
+import { format } from 'date-fns'
 
 export default class Jobs extends Component {
   constructor( props ) {
     super( props );
     this.state = { list: f.flow(
-      f.get( 'jobs' ),
       f.sortBy( 'from' ),
       f.reverse
-    )( data ) };
+    )( props.data ) }
   }
   
 	render() {
@@ -19,7 +17,7 @@ export default class Jobs extends Component {
       <div className="Jobs">
         <h2>Beruflicher Werdegang</h2>
         { f.map( ( entry ) => 
-        <div className="Jobs-Row" key={ entry.title }>
+        <div className="Jobs-Row" key={ entry.title + entry.to }>
           <div className="Jobs-Daterange">
             { format( new Date( entry.from ), 'YYYY/MM')  } - { entry.to ? format( new Date( entry.to ), 'YYYY/MM') : '' }
           </div>

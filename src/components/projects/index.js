@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import './style.css';
-import data from '../../data.js';
-import f from 'lodash/fp';
-import ProjectHeader from '../project-header';
-import Lightbox from '../lightbox';
-import ReactGA from 'react-ga';
+import React, { Component } from 'react'
+import './style.css'
+import f from 'lodash/fp'
+import ProjectHeader from '../project-header'
+import Lightbox from '../lightbox'
+import ReactGA from 'react-ga'
 
 export default class Projects extends Component {
   constructor( props ) {
@@ -12,9 +11,8 @@ export default class Projects extends Component {
     this.state = { 
       lboxImages: null,
       list: f.flow(
-        f.get( 'projects' ),
         f.filter( ( project ) => !f.get( 'exclude', project ) )
-      )( data )
+      )( props.data )
     };
   }
 
@@ -42,8 +40,8 @@ export default class Projects extends Component {
     }
   }
 
-  showImage = ( title, image) => {
-    this.setState( { lboxImages: [ `/projects/${ image }` ] } );
+  showImage = ( title, image ) => {
+    this.setState( { lboxImages: [ image ] } );
     ReactGA.event( {
       'category': 'Projekte',
       'action': 'Bild',
@@ -55,8 +53,8 @@ export default class Projects extends Component {
     return <div className="Projects-SubSection">
       <div className="Projects-Gallery">
         { f.map( ( image ) => {
-          return <a target="blank" key={ image } onClick={ () => this.showImage( entry.title, image) }>
-            <img className="Projects-GalleryImg" src={ `/projects/${ image }` } alt='' />
+          return <a target="blank" key={ image } onClick={ ( ) => this.showImage( entry.title, image ) }>
+            <img className="Projects-GalleryImg" src={ image } alt='' />
           </a>
         }, entry.images ) }
       </div>
@@ -68,7 +66,7 @@ export default class Projects extends Component {
       f.get( 'jobs' ),
       f.find( { cId: cId } ),
       f.get( 'company' )
-    ) ( data )
+    ) ( this.props.data )
   }
 
 	render() {

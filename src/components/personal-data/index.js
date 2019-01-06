@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import './style.css';
-import data from '../../data.js';
-import f from 'lodash/fp';
+import React, { Component } from 'react'
+import './style.css'
+import f from 'lodash/fp'
 
 export default class PersonalData extends Component {
-  componentDidMount() {
-    this.setState( {
+  constructor( props ) {
+    super( props )
+    this.state = {
       list: f.flow(
-        f.get( 'personal' ),
         f.pick( [ 'name', 'phone', 'email', 'nationality', 'strengths' ] ),
         f.values
-      )( data )
-    } );
+      )( props.data )
+    }
   }
 
   render() {
     return (
       <div className="PersonalData">
         <div className="PersonalData-Profile">
-          <img src={ '../images/' + data.personal.foto.url } alt="Profile Foto" />
+          <img src={ this.props.data.foto.url } alt="Profile Foto" />
         </div>
         <h2>Persönliche Daten</h2>
         { f.flow(
@@ -28,8 +27,8 @@ export default class PersonalData extends Component {
               <div className="PersonalData-Title">{ entry.title }</div><div>{ entry.value }</div>
             </div>
             )
-          ) (this.state ) }
+          ) ( this.state ) }
       </div>
-    );
+    )
   }
-};
+}

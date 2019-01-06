@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import './style.css';
-import data from '../../data.js';
-import f from 'lodash/fp';
+// import f from 'lodash/fp';
 
 export default class Home extends Component {
   constructor( props ) {
     super( props );
-    this.state = {
-      email:  f.get( 'personal.email.value', data )
-    };
+    this.state = { encodedUrl: '' }
   }
 
 	render() {
 		return (
 			<div className="Home">
-				<h1>Lebenslauf</h1>
+				<h1>Custom Lebenslauf Engine</h1>
         <p>von</p>
 				<h3>Markus Glatz</h3>
         <br/>

@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
-import './style.css';
-import PersonalData from '../personal-data';
-import Education from '../education';
-import Skills from '../skills';
-import Projects from '../projects';
-import Jobs from '../jobs';
+import React, { Component } from 'react'
+import './style.css'
+import PersonalData from '../personal-data'
+import Education from '../education'
+import Skills from '../skills'
+import Projects from '../projects'
+import Jobs from '../jobs'
+import f from 'lodash/fp'
+
+const components = {
+  personalData: PersonalData,
+  skills: Skills,
+  education: Education,
+  jobs: Jobs,
+  projects: Projects
+}
 
 export default class CV extends Component {
   constructor( props ) {
-    super( props );
+    super( props )
     this.state = {
-      active: { 
-        personalData: false,
-        skills: false,
-        education: false,
-        jobs: false,
-        projects: false
-      }
+      active: props.active
     }
   }
-  componentDidMount( ) {
-    this.updateSections( this.props )
-  }
-  componentWillReceiveProps( newProps ) {
-    this.updateSections( newProps )
-  }
-  updateSections( newProps ) {
+
+  updateSections( newProps ){
     this.setState( {
       active: { 
         personalData: newProps.personalData,
@@ -36,18 +34,24 @@ export default class CV extends Component {
       } 
     } )
   }
+
+  renderComponent = ( activeKey, idx ) => {
+    const { data } = this.props
+    const Component = components[ activeKey ]
+    return <Component data={ data[ activeKey ] } key={ idx } />
+  }
+  
 	render() {
+    const { active } = this.props
+    const actives = [ ]
+    f.mapKeys( activeKey => active[ activeKey ] && actives.push( activeKey ), active )
 		return (
 			<div className="CV">
 				<h1>Lebenslauf</h1>
         <div className="CV-Sections">
-          { this.state.active.personalData ? <PersonalData></PersonalData> : '' }
-          { this.state.active.skills ? <Skills></Skills> : '' }
-          { this.state.active.education ? <Education></Education> : '' }
-          { this.state.active.jobs ? <Jobs></Jobs> : '' }
-          { this.state.active.projects ? <Projects></Projects> : '' }
+          { actives.map( ( activeKey, idx ) => this.renderComponent( activeKey, idx ) ) }
         </div>
 			</div>
-		);
+		)
 	}
 }

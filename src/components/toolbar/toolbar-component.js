@@ -1,50 +1,54 @@
-import React, { Component } from 'react';
-import './style.css';
-import Ico from '../ico';
-import f from 'lodash/fp';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import './style.css'
+import Ico from '../ico'
+import f from 'lodash/fp'
+import { Link } from 'react-router-dom'
+import { activeSections } from '../shared/util'
 
 export default class Toolbar extends Component {
   constructor( props ) {
     super( props );
     this.state = {
       show: false,
-      hash: this.props.hash,
-      sections: [
-        { title: 'Persönliche Daten', value: 'pd', active: true },
-        { title: 'Skills', value: 'sk', active: true },
-        { title: 'Ausbildung', value: 'edu', active: true },
-        { title: 'Jobs', value: 'jb', active: true },
-        { title: 'Projekte', value: 'pj', active: true }
-      ]
+      dataUrl: props.dataUrl,
+      hash: props.hash,
+      sections: f.map( section => ( { 
+        title: section.title,
+        value: section.long, 
+        active: true 
+      } ), activeSections )
     }
   }
 
+  static getDerivedStateFromProps( props ){
+    return { hash: props.hash, dataUrl: props.dataUrl }
+  }
+
   onChangeActive = ( section ) => {
-    this.setState( { 
-      sections: f.flow(
-        f.get( 'sections' ),
-        f.map( ( s ) => {
+    this.setState( 
+      prevState => ( {
+        sections: prevState.sections.map( ( s ) => {
           if ( s.value === section.value ) {
             s.active = !section.active
           }
-          return s;
+          return s
         } )
-      ) ( this.state )
-    } );
-    this.props.onChange( section );
+      } )
+    )
+    this.props.onChangeActive( section )
   }
 
-  componentWillReceiveProps( props ) {
-    this.setState( { hash: props.hash } )
+  onDataUrlChange = event => {
+    console.log( 'onDataUrlChange', event.target.value )
+    this.props.onDataUrlChange( event.target.value )
   }
-
+  
   onMenuToggle = ( ) => {
     this.setState( { show: !this.state.show } );
   }
 
-  renderMenu = ( ) => {
-    return <div className="Toolbar-Menu">
+  renderMenu = ( ) => (
+    <div className="Toolbar-Menu">
       <div className="Toolbar-Menu-Container">
         <ul>
           { f.values( this.state.sections ).map( ( section ) => 
@@ -53,6 +57,10 @@ export default class Toolbar extends Component {
               <span onClick={ ( ) => this.onChangeActive( section ) }>{ section.title }</span>
             </li>
           ) }
+          <li className="Toolbar-MenuEntry Toolbar-MenuEntryDataLink">
+            <span className="Toolbar-DataLink">Link zu Deinem JSON file (zB. Google Drive, DropBox,...)</span>
+            <textarea type="text" value={ this.state.dataUrl } onChange={ this.onDataUrlChange }/>
+          </li>
           <li className="Toolbar-MenuEntry Toolbar-MenuEntryHash">
             <Link className="Toolbar-Hash" to={ "/custom/" + this.state.hash } target="_blank">
               Share Link anzeigen<Ico icon="external-link"></Ico>
@@ -62,7 +70,7 @@ export default class Toolbar extends Component {
         </ul>
       </div>
     </div>
-  }
+  )
 
 	render() {
 		return (
