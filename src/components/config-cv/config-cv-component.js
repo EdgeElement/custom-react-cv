@@ -42,7 +42,7 @@ export default class ConfigCV extends Component {
     this.setState( { 
       dataUrl: dataUrl,
       hash: hashActive( this.state.active, dataUrl )
-    } )
+    }, this.loadData( ) )
   }
 
   loadData = ( ) => {
