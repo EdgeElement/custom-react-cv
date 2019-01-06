@@ -53,7 +53,7 @@ export default class ConfigCV extends Component {
 
 	render() {
     const { data, active } = this.state
-		return (
+    return (
 			<div className="ConfigCV">
         <Toolbar hash={ this.state.hash }
                  dataUrl={ this.state.dataUrl }

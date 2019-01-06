@@ -9,11 +9,7 @@ export default class Projects extends Component {
   constructor( props ) {
     super( props );
     this.state = { 
-      lboxImages: null,
-      list: f.flow(
-        f.get( 'data.projects' ),
-        f.filter( ( project ) => !f.get( 'exclude', project ) )
-      )( props )
+      lboxImages: null
     }
   }
 
@@ -71,6 +67,11 @@ export default class Projects extends Component {
   }
 
 	render() {
+    const list = f.flow(
+      f.get( 'data.projects' ),
+      f.filter( ( project ) => !f.get( 'exclude', project ) )
+    )( this.props )
+    
   	return ( 
       <div className="Projects">
         <Lightbox images={ this.state.lboxImages }></Lightbox>
@@ -86,7 +87,7 @@ export default class Projects extends Component {
               { this.getLists( entry, 'responsibilities', 'Aufgaben' ) }
               { this.getGallery( entry ) }
             </div>
-          ,  this.state.list ) }
+          ,list ) }
         </div>
       </div>
     );
