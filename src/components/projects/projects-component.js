@@ -78,7 +78,6 @@ export default class Projects extends Component {
         <div className="Projects-Container">
           { f.map( ( entry ) => 
             <div className="Projects-Project" id={ `Project_${ entry.title }` } key={ entry.cId + entry.title }>
-            { console.log( entry.cId, this.getCompanyById( entry.cId ) )}
               <ProjectHeader title={ entry.title } web={ entry.web } cId={ entry.cId } 
                              company={ this.getCompanyById( entry.cId ) }>
               </ProjectHeader>

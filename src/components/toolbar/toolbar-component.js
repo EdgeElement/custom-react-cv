@@ -39,7 +39,6 @@ export default class Toolbar extends Component {
   }
 
   onDataUrlChange = event => {
-    console.log( 'onDataUrlChange', event.target.value )
     this.props.onDataUrlChange( event.target.value )
   }
   
