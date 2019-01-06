@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
+import './project-header.css';
 import Ico from '../ico';
 import ReactGA from 'react-ga';
 
@@ -20,23 +20,21 @@ export default class ProjectHeader extends Component {
     } );
   }
 
-  getCompany = ( ) => {
-    return <a href={ `#${ this.props.cId }` } title="zur Jobbeschreibung" className="ProjectHeader-CompanyLink" onClick={ this.trackCompany }>
-        <span className="ProjectHeader-CompanyTag">@{ this.props.company }
-        </span>
-        <span className="ProjectHeader-IconUp">
-          <Ico icon="arrow-up"></Ico>
-        </span>
-      </a>
-  }
+  getCompany = ( ) => (
+    <a href={ `#${ this.props.cId }` } title="zur Jobbeschreibung" className="ProjectHeader-CompanyLink" onClick={ this.trackCompany }>
+      <span className="ProjectHeader-CompanyTag">@{ this.props.company }
+      </span>
+      <div className="ProjectHeader-Link">
+        <Ico icon="arrow-up" className="ProjectHeader-IconUp"/>
+      </div>
+    </a>
+  )
 
-  getLink = ( ) => {
-    if ( this.props.web ) {
-      return <a href={ this.props.web.link } target='_blank' title={ this.props.web.title } className="ProjectHeader-IconLink" onClick={ this.trackExtLink }>
-      <Ico icon="external-link"></Ico>
-      </a>
-    }
-  }
+  getLink = ( ) => this.props.web && (
+    <a href={ this.props.web.link } target='_blank' title={ this.props.web.title } onClick={ this.trackExtLink } className="ProjectHeader-Link">
+      <Ico icon="external-link" className="ProjectHeader-IconLink"/>
+    </a>
+  )
 
 	render() {
   	return ( 

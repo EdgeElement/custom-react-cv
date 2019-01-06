@@ -7,6 +7,7 @@ export default class PersonalData extends Component {
     super( props )
     this.state = {
       list: f.flow(
+        f.get( 'personalData' ),
         f.pick( [ 'name', 'phone', 'email', 'nationality', 'strengths' ] ),
         f.values
       )( props.data )
@@ -17,7 +18,7 @@ export default class PersonalData extends Component {
     return (
       <div className="PersonalData">
         <div className="PersonalData-Profile">
-          <img src={ this.props.data.foto.url } alt="Profile Foto" />
+          <img src={ this.props.data.personalData.foto.url } alt="Profile Foto" />
         </div>
         <h2>Persönliche Daten</h2>
         { f.flow(

@@ -1,25 +1,18 @@
-.ProjectHeader-IconLink {
-  opacity: 0.5;
-  padding: 8px;
-  display: flex;
-  margin-bottom: -8px;
-}
-
 .ProjectHeader-CompanyTitle {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  border-top: dotted 1px hsla(189, 100%, 42%, 0.4);
-  border-bottom: dotted 1px hsla(189, 100%, 42%, 0.4);
+  border-top: dotted 1px hsla(var(--hue), var( --sat), 22%, 0.4);
+  border-bottom: dotted 1px hsla(var(--hue), var( --sat), 22%, 0.4);
   margin-bottom: 15px;
   padding: 15px 20px 15px;
-  background-color:  hsla(188, 100%, 42%, 0.1);
+  background-color:  hsl(var(--hue), var( --sat), 22%);
 }
 
 .ProjectHeader-CompanyName {
   margin-bottom: 3px;
   font-size: 1.3rem;
-  color: #444;
+  color: #fff;
   flex-basis: calc(100% - 40px);
 }
 
@@ -37,14 +30,21 @@
   margin-right: 5px;
 }
 
-.ProjectHeader-IconUp {
-  padding: 4px;
-  display: flex;
-  background-color: hsla(189, 100%, 42%, 0.5);
+.ProjectHeader-Link {
+  padding: 8px;
 }
 
-.ProjectHeader-IconUp > .Ico {
+.ProjectHeader-IconLink {
   opacity: 0.5;
+  display: flex;
+  margin-bottom: -8px;
+  filter: invert(1);
+}
+
+.ProjectHeader-IconUp {
+  opacity: 0.5;
+  display: flex;
+  filter: invert(1);
 }
 
 @media screen and (min-width: 480px) {

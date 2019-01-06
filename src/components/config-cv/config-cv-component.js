@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './style.css';
-import f from 'lodash/fp';
-import CV from '../cv';
-import Toolbar from '../toolbar/toolbar-component';
+import React, { Component } from 'react'
+import './style.css'
+import f from 'lodash/fp'
+import CV from '../cv/cv-component'
+import Toolbar from '../toolbar/toolbar-component'
 import { hashActive, loadData } from '../shared/util'
 
 const active = { 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './style.css'
+import './projects.css'
 import f from 'lodash/fp'
-import ProjectHeader from '../project-header'
+import ProjectHeader from '../projects/project-header-component'
 import Lightbox from '../lightbox'
 import ReactGA from 'react-ga'
 
@@ -11,9 +11,10 @@ export default class Projects extends Component {
     this.state = { 
       lboxImages: null,
       list: f.flow(
+        f.get( 'data.projects' ),
         f.filter( ( project ) => !f.get( 'exclude', project ) )
-      )( props.data )
-    };
+      )( props )
+    }
   }
 
   getDescription = ( entry ) => {
@@ -77,8 +78,9 @@ export default class Projects extends Component {
         <div className="Projects-Container">
           { f.map( ( entry ) => 
             <div className="Projects-Project" id={ `Project_${ entry.title }` } key={ entry.cId + entry.title }>
+            { console.log( entry.cId, this.getCompanyById( entry.cId ) )}
               <ProjectHeader title={ entry.title } web={ entry.web } cId={ entry.cId } 
-                            company={ this.getCompanyById( entry.cId ) }>
+                             company={ this.getCompanyById( entry.cId ) }>
               </ProjectHeader>
               { this.getDescription( entry ) }
               { this.getLists( entry, 'technology', 'Technologie' ) }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 
-import CV from '../cv'
+import CV from '../cv/cv-component'
 import { dehashActive, loadData } from '../shared/util'
 
 export default class CustomCV extends Component {

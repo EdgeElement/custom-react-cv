@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './style.css'
-import PersonalData from '../personal-data'
-import Education from '../education'
-import Skills from '../skills'
-import Projects from '../projects'
-import Jobs from '../jobs'
+import PersonalData from '../personal-data/personal-data-component'
+import Education from '../education/education-component'
+import Skills from '../skills/skills-component'
+import Projects from '../projects/projects-component'
+import Jobs from '../jobs/jobs-component'
 import f from 'lodash/fp'
 
 const components = {
@@ -38,7 +38,7 @@ export default class CV extends Component {
   renderComponent = ( activeKey, idx ) => {
     const { data } = this.props
     const Component = components[ activeKey ]
-    return <Component data={ data[ activeKey ] } key={ idx } />
+    return <Component data={ data } key={ idx } />
   }
   
 	render() {

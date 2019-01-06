@@ -1,3 +1,8 @@
+:root{
+  --hue: 216;
+  --sat: 22%;
+}
+
 html, body {
 	height: 100%;
   width: 100%;
@@ -36,14 +41,14 @@ h1 {
   font-weight: 400;
   font-size: 2rem;
   margin: 0px 0px 15px;
-  color: hsl(189, 100%, 35%);
+  color: hsl(var(--hue), var( --sat), 35%);
 }
 
 h2 {
   font-weight: 400;
   font-size: 1.5rem;
   margin: 0px 0px 15px;
-  color: hsl(189, 100%, 35%);
+  color: hsl(var(--hue), var( --sat), 35%);
 }
 
 h3 {

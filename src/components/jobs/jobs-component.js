@@ -7,9 +7,10 @@ export default class Jobs extends Component {
   constructor( props ) {
     super( props );
     this.state = { list: f.flow(
+      f.get( 'data.jobs' ),
       f.sortBy( 'from' ),
       f.reverse
-    )( props.data ) }
+    )( props ) }
   }
   
 	render() {
