@@ -4,8 +4,9 @@ import f from 'lodash/fp'
 import CV from '../cv/cv-component'
 import Toolbar from '../toolbar/toolbar-component'
 import { hashActive, loadData } from '../shared/util'
+import store from 'store2'
 
-const active = { 
+const active = {
   personalData: true,
   skills: true,
   education: true,
@@ -13,11 +14,14 @@ const active = {
   projects: true
 }
 
-const dataUrl = 'https://raw.githubusercontent.com/4Pixel/custom-react-cv/master/sample/data.json'
+const defaultDataUrl = 'https://raw.githubusercontent.com/4Pixel/custom-react-cv/master/sample/data.json'
 
 export default class ConfigCV extends Component {
   constructor( props ) {
-    super( props );
+    super( props )
+
+    const dataUrl = store.get( 'dataUrl' ) || defaultDataUrl
+
     this.state = {
       dataUrl: dataUrl,
       active: active,
@@ -39,6 +43,7 @@ export default class ConfigCV extends Component {
   }
 
   onDataUrlChange = dataUrl => {
+    store.set( 'dataUrl', dataUrl )
     this.setState( { 
       dataUrl: dataUrl,
       hash: hashActive( this.state.active, dataUrl )
