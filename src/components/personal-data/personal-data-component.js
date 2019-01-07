@@ -6,7 +6,7 @@ export default class PersonalData extends Component {
   render() {
     const list = f.flow(
       f.get( 'personalData' ),
-      f.pick( [ 'name', 'phone', 'email', 'nationality', 'strengths' ] ),
+      f.pick( [ 'name', 'phone', 'email', 'website', 'nationality', 'strengths' ] ),
       f.values
     )( this.props.data )
 
