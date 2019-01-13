@@ -51,3 +51,9 @@
     flex-shrink: 0;
   }
 }
+
+@media print {
+  .PersonalData {
+    page-break-after: always;
+  }
+}
