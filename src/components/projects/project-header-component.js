@@ -17,7 +17,7 @@ export default class ProjectHeader extends Component {
       'category': 'Projekte',
       'action': 'Company Link',
       'label': this.props.web.title
-    } );
+    } )
   }
 
   getCompany = ( ) => (
