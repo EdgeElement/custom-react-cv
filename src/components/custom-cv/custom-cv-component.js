@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './style.css'
 
 import CV from '../cv/cv-component'
-import { dehashActive, loadData } from '../shared/util'
+import { loadData } from './custom-cv-service'
+import { dehashActive } from '../config-cv/config-service'
 
 export default class CustomCV extends Component {
   constructor( props ) {
@@ -21,6 +22,6 @@ export default class CustomCV extends Component {
 			<div className="CustomCV">
         { data && <CV data={ data } active={ active }/> }
 			</div>
-		);
+		)
 	}
 }

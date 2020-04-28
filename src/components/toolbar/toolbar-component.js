@@ -3,7 +3,7 @@ import './style.css'
 import Ico from '../ico'
 import f from 'lodash/fp'
 import { Link } from 'react-router-dom'
-import { activeSections } from '../shared/util'
+import { activeSections } from '../shared/common'
 
 export default class Toolbar extends Component {
   constructor( props ) {

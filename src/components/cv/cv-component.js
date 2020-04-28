@@ -6,6 +6,7 @@ import Skills from '../skills/skills-component'
 import Projects from '../projects/projects-component'
 import Jobs from '../jobs/jobs-component'
 import f from 'lodash/fp'
+import { i18n } from '../../locale'
 
 const components = {
   personalData: PersonalData,
@@ -47,7 +48,7 @@ export default class CV extends Component {
     f.mapKeys( activeKey => active[ activeKey ] && actives.push( activeKey ), active )
 		return (
 			<div className="CV">
-				<h1>Lebenslauf</h1>
+				<h1>{ i18n( 'cv' )}</h1>
         <div className="CV-Sections">
           { actives.map( ( activeKey, idx ) => this.renderComponent( activeKey, idx ) ) }
         </div>

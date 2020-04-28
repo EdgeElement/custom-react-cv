@@ -8,21 +8,20 @@ export default class PersonalData extends Component {
     const { data } = this.props
     const list = f.flow(
       f.get( 'personalData' ),
-      f.pick( [ 'name', 'phone', 'email', 'website', 'nationality', 'strengths' ] ),
-      f.values
+      f.pick( [ 'name', 'phone', 'email', 'website', 'nationality', 'strengths' ] )
     )( data )
 
     return (
       <div className="PersonalData">
         <div className="PersonalData-Profile">
-          <img src={ data.personalData.foto.url } alt="Profile Foto" />
+          <img src={ data.personalData.foto } alt="Profile Foto" />
         </div>
         <h2>{ i18n( 'personalData' ) }</h2>
-        { f.map( entry => (
-          <div className="PersonalData-Row" key={entry.title }>
-            <div className="PersonalData-Title">{ entry.title }</div><div>{ entry.value }</div>
+        { Object.keys( list ).map( key => (
+          <div className="PersonalData-Row" key={ key }>
+            <div className="PersonalData-Title">{ i18n( `personal.${ key }` ) }</div><div>{ list[ key ] }</div>
           </div>
-        ), list ) }
+        ) ) }
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 import f from 'lodash/fp'
 import { format } from 'date-fns'
+import { i18n } from '../../locale'
 
 export default class Jobs extends Component {
 	render() {
@@ -13,7 +14,7 @@ export default class Jobs extends Component {
 
 		return ( 
       <div className="Jobs">
-        <h2>Beruflicher Werdegang</h2>
+        <h2>{ i18n( 'jobs' ) }</h2>
         { f.map( ( entry ) => (
           <div className="Jobs-Row" key={ entry.title + entry.to }>
             <div className="Jobs-Daterange">
