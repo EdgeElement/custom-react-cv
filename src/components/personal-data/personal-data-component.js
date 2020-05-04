@@ -6,7 +6,7 @@ import { i18n } from '../../locale'
 export default class PersonalData extends Component {
   render() {
     const { data } = this.props
-    const list = f.flow(
+    const list =  f.flow(
       f.get( 'personalData' ),
       f.pick( [ 'name', 'phone', 'email', 'website', 'nationality', 'strengths' ] )
     )( data )

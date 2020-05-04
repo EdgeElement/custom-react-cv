@@ -11,6 +11,7 @@ const active = {
   profileFoto: true,
   education: true,
   personalData: true,
+  profile: true,
   skills: true,
   jobs: true,
   projects: true

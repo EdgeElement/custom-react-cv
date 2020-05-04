@@ -2,7 +2,7 @@ import f from 'lodash/fp'
 
 const translations = {
   de: {
-    cv: 'Lebenslauf',
+    profile: 'Profil',
     personalData: 'Persönliche Daten',
     name: 'Name',
     personal: {
@@ -17,7 +17,7 @@ const translations = {
     jobs: 'Beruflicher Werdegang'
   },
   en: {
-    cv: 'Profile',
+    profile: 'Profile',
     personalData: 'Contact',
     personal: {
       name: 'Name',
