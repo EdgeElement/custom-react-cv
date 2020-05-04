@@ -33,3 +33,9 @@
     flex-shrink: 0;
   }
 }
+
+@media print {
+  .Skills {
+    page-break-after: always;
+  }
+}

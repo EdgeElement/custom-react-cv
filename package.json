@@ -23,9 +23,9 @@
     "if-env": "^1.0.0"
   },
   "dependencies": {
-    "crypto-js": "^3.1.9-1",
+    "crypto-js": "^4.0.0",
     "date-fns": "^1.29.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.13",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-ga": "^2.3.5",
