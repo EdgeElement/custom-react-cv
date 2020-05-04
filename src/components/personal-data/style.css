@@ -5,20 +5,6 @@
   width: 100%;
 }
 
-.PersonalData-Profile {
-  width: 100%;
-  height: 100%;
-  max-width: 180px;
-  max-height: 180px;
-  border-radius: 140px;
-  overflow: hidden;
-  margin-bottom: 30px
-}
-
-.PersonalData-Profile > img {
-  width: inherit;
-}
-
 .PersonalData-Row {
   display: flex;
   width: 100%;

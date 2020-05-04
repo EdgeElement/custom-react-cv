@@ -13,9 +13,6 @@ export default class PersonalData extends Component {
 
     return (
       <div className="PersonalData">
-        <div className="PersonalData-Profile">
-          <img src={ data.personalData.foto } alt="Profile Foto" />
-        </div>
         <h2>{ i18n( 'personalData' ) }</h2>
         { Object.keys( list ).map( key => (
           <div className="PersonalData-Row" key={ key }>

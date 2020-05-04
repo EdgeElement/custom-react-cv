@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import PersonalData from '../personal-data/personal-data-component'
+import ProfileFoto from '../profile-foto/profile-foto-component'
 import Education from '../education/education-component'
 import Skills from '../skills/skills-component'
 import Projects from '../projects/projects-component'
@@ -9,9 +10,10 @@ import f from 'lodash/fp'
 import { i18n } from '../../locale'
 
 const components = {
+  profileFoto: ProfileFoto,
+  education: Education,
   personalData: PersonalData,
   skills: Skills,
-  education: Education,
   jobs: Jobs,
   projects: Projects
 }
@@ -22,18 +24,6 @@ export default class CV extends Component {
     this.state = {
       active: props.active
     }
-  }
-
-  updateSections( newProps ){
-    this.setState( {
-      active: { 
-        personalData: newProps.personalData,
-        skills: newProps.skills,
-        education: newProps.education,
-        jobs: newProps.jobs,
-        projects: newProps.projects
-      } 
-    } )
   }
 
   renderComponent = ( activeKey, idx ) => {

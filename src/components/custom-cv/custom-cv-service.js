@@ -8,7 +8,7 @@ export const loadData = url => (
   .then( data => {
     const base = f.getOr( '', 'imageBasePath', data )
     return f.flow(
-      data => extendImagePath( base, 'personalData.foto', data ),
+      data => extendImagePath( base, 'profileFoto', data ),
       data => {
         if( data.projects ){
           data.projects.map( project => {

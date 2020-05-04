@@ -18,6 +18,7 @@ export default class CustomCV extends Component {
 
 	render() {
     const { data, active } = this.state
+    console.log( active)
     return (
 			<div className="CustomCV">
         { data && <CV data={ data } active={ active }/> }

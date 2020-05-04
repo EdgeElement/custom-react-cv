@@ -17,8 +17,8 @@ const translations = {
     jobs: 'Beruflicher Werdegang'
   },
   en: {
-    cv: 'CV',
-    personalData: 'Profile',
+    cv: 'Profile',
+    personalData: 'Contact',
     personal: {
       name: 'Name',
       phone: 'Phone',

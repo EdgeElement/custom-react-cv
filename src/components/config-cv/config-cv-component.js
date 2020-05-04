@@ -8,9 +8,10 @@ import { loadData } from '../custom-cv/custom-cv-service'
 import { hashActive } from './config-service'
 
 const active = {
+  profileFoto: true,
+  education: true,
   personalData: true,
   skills: true,
-  education: true,
   jobs: true,
   projects: true
 }
